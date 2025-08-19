@@ -63,7 +63,7 @@ const HeroSection = () => {
               <img 
                 src={phoneMockupReceipt}
                 alt="Receipt tracker app showing fuel and meals table"
-                className="relative w-80 md:w-96 lg:w-[400px] drop-shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                className="relative w-80 md:w-96 drop-shadow-2xl transform hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
