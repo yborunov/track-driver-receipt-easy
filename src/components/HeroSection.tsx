@@ -1,18 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroBackground from "@/assets/hero-background.jpg";
+// import heroBackground from "@/assets/hero-background.jpg";
 import phoneMockupReceipt from "@/assets/iphone-receipt-capture-mockup-transp.png";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 const HeroSection = () => {
+  const { trackButton } = useAnalytics();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
+        {/* <img 
           src={heroBackground}
           alt="Truck driver at gas station"
           className="w-full h-full object-cover"
-        />
+        /> */}
         <div className="absolute inset-0 bg-background/85"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/85"></div>
       </div>
@@ -35,7 +37,10 @@ const HeroSection = () => {
                 variant="hero" 
                 size="xl"
                 className="group"
-                onClick={() => document.getElementById('email-capture')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  trackButton('Get Early Access', { location: 'hero_section' });
+                  document.getElementById('email-capture')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 Get Early Access
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -45,7 +50,10 @@ const HeroSection = () => {
                 variant="outline" 
                 size="xl"
                 className="bg-background/50 backdrop-blur-sm hover:bg-background/80"
-                onClick={() => document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  trackButton('Learn More', { location: 'hero_section' });
+                  document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 Learn More
               </Button>

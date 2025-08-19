@@ -59,6 +59,17 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+- Amplitude Analytics
+
+## Analytics Integration
+
+This project includes Amplitude analytics for tracking user behavior and events. See [Analytics Documentation](./docs/ANALYTICS.md) for setup and usage instructions.
+
+To get started with analytics:
+
+1. Create a `.env` file in the root directory
+2. Add your Amplitude API key: `VITE_AMPLITUDE_API_KEY=your_api_key_here`
+3. The analytics will automatically start tracking page views and user interactions
 
 ## How can I deploy this project?
 
