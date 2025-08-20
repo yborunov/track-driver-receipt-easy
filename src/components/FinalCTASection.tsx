@@ -24,6 +24,19 @@ const FinalCTASection = () => {
         .from("truckdriver_receipt_waitlist")
         .insert({ email });
 
+      if (error) {
+        throw error;
+      }
+
+      // Track gtag conversion when email is successfully submitted
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-17434943664/lead',
+          'value': 1.0,
+          'currency': 'USD'
+        });
+      }
+
       toast({
         title: "You're on the waitlist!",
         description: "We'll notify you when early access is available.",
